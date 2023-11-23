@@ -8,14 +8,10 @@ import main.NeanderCloud;
 public class Interactions {
 	
 	public static String text = "";
-	HashMap<String, String> logInfo = new HashMap<String, String>();
+	static HashMap<String, String> logInfo = new HashMap<String, String>();
 	
 	public Interactions(){
-		logInfo.put("Conrado", "Conrado08");
-		logInfo.put("Seila", "1234");
-		logInfo.put("Faroferinho", "4321");
-		logInfo.put("Dragonzord", "sadee3i");
-		logInfo.put("Conta", "Senha");
+		
 	}
 	
 	public static boolean mouseIntersection(int x, int y, int w, int h) {
@@ -59,8 +55,30 @@ public class Interactions {
 		
 	}
 	
-	public boolean verifyAccount(String account, String password) {
+	public static boolean verifyAccount(String account, String password) {
+		System.out.println("Formulário Enviado");
+		
+		HashMap<String, String> info = getLoginInfo();
+		
+		if(info.containsKey(account)) {
+			if(info.get(account).equals(password)) {
+				System.out.println("Entrando...");
+				return true;
+			}
+		}
+		
 		return false;
+	}
+	
+	protected static HashMap<String, String> getLoginInfo(){
+		
+		logInfo.put("Conrado", "Conrado08");
+		logInfo.put("Seila", "1234");
+		logInfo.put("Faroferinho", "4321");
+		logInfo.put("Dragonzord", "sadee3i");
+		logInfo.put("Conta", "Senha");
+		
+		return logInfo;
 	}
 
 }

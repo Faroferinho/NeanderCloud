@@ -14,13 +14,12 @@ public class LoginPage {
 	
 	public int insertInfo = 0;
 	public boolean click;
-	private boolean sendForm = false;
 	
 	public String userID = "";
 	public String userPassword = "";
 
 	public LoginPage() {
-	
+		
 	}
 	
 	public void tick() {
@@ -41,7 +40,10 @@ public class LoginPage {
 			}
 			
 			if(Interactions.mouseIntersection(NeanderCloud.WIDTH/2-50, NeanderCloud.HEIGHT - (48 * 3) - 16, 100, 60)) {
-				System.out.println("Formulário Enviado");
+				if(Interactions.verifyAccount(userID, userPassword)) {
+					System.out.println("Estado: " + NeanderCloud.state);
+					NeanderCloud.state = 1;
+				}
 			}
 			
 			click = false;

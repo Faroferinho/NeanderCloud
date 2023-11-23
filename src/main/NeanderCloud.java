@@ -96,6 +96,9 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		case 0:
 			loginP.render(g);
 			break;
+		case 1:
+			g.fillRect(0, 0, WIDTH, HEIGHT);
+			break;
 		}
 		
 		
