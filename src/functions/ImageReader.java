@@ -1,5 +1,6 @@
 package functions;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +22,12 @@ public class ImageReader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	void justDraw(Graphics g) {
+		g.drawImage(spritesheet, 0, 0, 0, 0, 0, 0, 0, 0, null);
+		g.drawImage(backgroundLogin, 0, 0, 0, 0, 0, 0, 0, 0, null);
+		g.drawImage(backgroundMain, 0, 0, 0, 0, 0, 0, 0, 0, null);
 	}
 
 }

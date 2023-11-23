@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -12,10 +14,11 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import functions.Interactions;
 import pages.LoginPage;
 
 
-public class NeanderCloud extends Canvas implements Runnable, MouseListener, MouseMotionListener{
+public class NeanderCloud extends Canvas implements Runnable, MouseListener, MouseMotionListener, KeyListener{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -63,6 +66,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	public NeanderCloud() {
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.addKeyListener(this);
 	}
 	
 	public static void tick() {
@@ -121,6 +125,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		loginP.click = true;
 	}
 
 	@Override
@@ -151,7 +156,30 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		// TODO Auto-generated method stub
 		mX = e.getX();
 		mY = e.getY();
-		System.out.println("X do Mouse: " + mX + " , Y do Mouse: " + mY);
+		//System.out.println("X do Mouse: " + mX + " , Y do Mouse: " + mY);
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		//System.out.println("Status do Inserir Senha: " + loginP.insertInfo);
+		if(loginP.insertInfo == 1) {
+			loginP.userID = Interactions.textAtualizer(e);
+		}else if(loginP.insertInfo == 2) {
+			loginP.userPassword = Interactions.textAtualizer(e);
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
