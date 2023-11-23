@@ -1,71 +1,38 @@
 package pages;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Graphics;
 
 import main.NeanderCloud;
+import main.UserInterface;
 
-public class MainPage extends JFrame implements ActionListener{
+public class MainPage {
 	
-	private static final long serialVersionUID = 1L;
+	static int imgX[] = new int[3];
+	static int imgY = 15;
+	static int spaceBetween = NeanderCloud.WIDTH/16;
+	int initX = NeanderCloud.WIDTH/8;
 	
-	JFrame frame = new JFrame("Login");
-	JButton loginButton = new JButton("Login");
-	JButton resetButton = new JButton("Reset");
-	JLabel userIDLable = new JLabel("ID:");
-	JTextField userIDField = new JTextField();
-	JLabel userPasswordLable = new JLabel("Password:");
-	JPasswordField userPasswordField = new JPasswordField();
-	JLabel messageLable = new JLabel("");
-
-	public MainPage(NeanderCloud nC, int w, int h){
-		JFrame frame = new JFrame();
-		
-		
-		userIDLable.setBounds(50, 100, 75, 25);
-		userIDField.setBounds(150, 100, 200, 25);
-		userPasswordLable.setBounds(50, 200, 75, 25);
-		userPasswordField.setBounds(150, 200, 200, 25);
-		
-		messageLable.setBounds(125, 350, 250, 35);
-		messageLable.setFont(new Font(null, Font.ITALIC, 25));
-		
-		loginButton.setBounds(125, 250, 100, 25);
-		loginButton.addActionListener(this);
-		resetButton.setBounds(225, 250, 100, 25);
-		resetButton.addActionListener(this);
-		
-		
-		frame.add(nC);
-		frame.add(userIDLable);
-		frame.add(userIDField);
-		frame.add(userPasswordLable);
-		frame.add(userPasswordField);
-		frame.add(messageLable);
-		frame.add(loginButton);
-		frame.add(resetButton);
-		
-		
-		frame.setSize(w, h);
-		frame.setLayout(null);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-		
+	static int boxWidth = 128;
+	static int boxHeight = 64;
+	
+	public MainPage(){
+		for(int i = 0; i < 3; i++) {
+			imgX[i] = initX + boxWidth*i + spaceBetween * i;
+		}
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	
+	public void tick() {
 		
 	}
 	
+	public void render(Graphics g) {
+		UserInterface.firstRender(g);
+		
+		g.setColor(Color.blue);
+		for(int i = 0; i < 3; i++) {
+			System.out.println("X: " + imgX[i] + ", Y: " + imgY + ", W: " + boxWidth + ", H: " + boxHeight);
+			g.fillRect(imgX[i], imgY, boxWidth, boxHeight);
+		}
+	}
 }

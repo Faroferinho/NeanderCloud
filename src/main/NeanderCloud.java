@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 
 import functions.Interactions;
 import pages.LoginPage;
+import pages.MainPage;
 
 
 public class NeanderCloud extends Canvas implements Runnable, MouseListener, MouseMotionListener, KeyListener{
@@ -24,13 +25,15 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	
 	public static int WIDTH = 0;
 	public static int HEIGHT = 0;
-	public static int state = 0;
+	public static int state = 1;
 	public static int mX;
 	public static int mY;
 	
 	public static Toolkit tk;
 	
 	public static LoginPage loginP;
+	public static MainPage mainP;
+	public static UserInterface ui;
 	
 	
 	public static void main(String args[]) {
@@ -43,7 +46,8 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		
 		
 		loginP = new LoginPage();
-		
+		mainP = new MainPage();
+		ui = new UserInterface();
 		
 		
 		JFrame frame = new JFrame();
@@ -75,9 +79,24 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		case 0:
 			loginP.tick();
 			break;
+		case 1:
+			ui.tick();
+			mainP.tick();
+			break;
+		case 2:
+			ui.tick();
+			break;
+		case 3:
+			ui.tick();
+			break;
 		}
 		
 		
+	}
+	
+	public void resetBackground(Graphics g) {
+		g.setColor(Color.black);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 	}
 	
 	public void render() {
@@ -97,7 +116,14 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 			loginP.render(g);
 			break;
 		case 1:
-			g.fillRect(0, 0, WIDTH, HEIGHT);
+			mainP.render(g);
+			ui.render(g);
+			break;
+		case 2:
+			ui.render(g);
+			break;
+		case 3:
+			ui.render(g);
 			break;
 		}
 		
@@ -129,6 +155,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		loginP.click = true;
+		ui.click = true;
 	}
 
 	@Override
@@ -177,6 +204,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		}else if(loginP.insertInfo == 2) {
 			loginP.userPassword = Interactions.textAtualizer(e);
 		}
+		
 	}
 
 	@Override
