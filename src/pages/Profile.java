@@ -87,7 +87,6 @@ public class Profile {
 					if(Interactions.mouseIntersection(imgX[auxX], imgY*auxY + auxHeight, boxWidth, boxHeight)) {
 						System.out.println("Produto: " + i);
 						NeanderCloud.productID = i;
-						NeanderCloud.createNewProductPage = true;
 						NeanderCloud.state = 3;
 					}
 					

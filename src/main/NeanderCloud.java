@@ -35,7 +35,6 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	public static int mX;
 	public static int mY;
 	
-	public static boolean createNewProductPage = false;
 	public static int productID = -1;
 	
 	
@@ -64,6 +63,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		mainP = new MainPage();
 		ui = new UserInterface();
 		p = new Profile("Conras");
+		product = new Product();
 		
 		
 		JFrame frame = new JFrame();
@@ -90,15 +90,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		this.addKeyListener(this);
 	}
 	
-	public static void checkForProduct() {
-		
-	}
-	
 	public static void tick() {
-		if(createNewProductPage == true) {
-			product = new Product(productID);
-			createNewProductPage = false;
-		}
 		
 		switch(state) {
 		case 0:
