@@ -3,6 +3,8 @@ package functions;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.JOptionPane;
+
 import main.NeanderCloud;
 
 public class UserInterface {
@@ -50,7 +52,10 @@ public class UserInterface {
 			}else if(Interactions.mouseIntersection(bttnX[1], bttnY, boxWidth, boxHeight)) {
 				NeanderCloud.state = 2;
 			}else if(Interactions.mouseIntersection(bttnX[2], bttnY, boxWidth, boxHeight)) {
-				NeanderCloud.state = 0;
+				int confirm = JOptionPane.showConfirmDialog(null, "Realmente deseja deslogar?", "Confirma a Saida", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if(confirm == 0) {
+					NeanderCloud.state = 0;
+				}
 			}else if(Interactions.mouseIntersection(bttnX[3], bttnY, boxWidth, boxHeight)) {
 				System.exit(0);
 			}

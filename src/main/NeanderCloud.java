@@ -134,6 +134,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 			ui.render(g);
 			break;
 		case 3:
+			resetBackground(g);
 			ui.render(g);
 			break;
 		}
@@ -206,6 +207,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		// TODO Auto-generated method stub
 		//System.out.println("getUnitsToScroll: " + e.getUnitsToScroll());
 		MainPage.scroll = e.getUnitsToScroll();
+		Profile.scroll = e.getUnitsToScroll();
 	}
 
 
