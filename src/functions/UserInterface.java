@@ -41,7 +41,7 @@ public class UserInterface {
 		
 		g.setColor(Color.red);
 		g.fillRect(24, bttnY*2 + boxHeight, NeanderCloud.WIDTH - 72, 6);
-		g.fillRect(24, bttnY*2 + boxHeight + (NeanderCloud.HEIGHT - (bttnY*2 + boxHeight) - 72), NeanderCloud.WIDTH - 72, 6);
+		g.fillRect(24, bttnY*2 + (NeanderCloud.HEIGHT - (bttnY*2) - 72), NeanderCloud.WIDTH - 72, 6);
 	}
 	
 	public void tick() {

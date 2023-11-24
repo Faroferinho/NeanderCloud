@@ -16,6 +16,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import functions.ImageLoader;
 import functions.Interactions;
 import functions.UserInterface;
 import pages.LoginPage;
@@ -35,6 +36,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	
 	public static Toolkit tk;
 	
+	public static ImageLoader iLoader;
 	public static LoginPage loginP;
 	public static MainPage mainP;
 	public static UserInterface ui;
@@ -50,6 +52,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		System.out.println("Largura: " + WIDTH + ", Altura: " + HEIGHT);
 		
 		
+		iLoader = new ImageLoader();
 		loginP = new LoginPage();
 		mainP = new MainPage();
 		ui = new UserInterface();

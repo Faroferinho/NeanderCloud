@@ -35,7 +35,9 @@ public class MainPage {
 		if(NeanderCloud.state == 1) {
 			if(click == true) {
 				for(int i = 0; i < 3; i++) {
-					if(Interactions.mouseIntersection(imgX[i], imgY + auxHeight, boxWidth, boxHeight)) {
+					if((NeanderCloud.mY > 100 && NeanderCloud.mY < NeanderCloud.HEIGHT - 70) && (Interactions.mouseIntersection(imgX[i], imgY + auxHeight, boxWidth, boxHeight) ||
+						Interactions.mouseIntersection(imgX[i], imgY*2 + auxHeight + boxHeight + 30, boxWidth, boxHeight) ||
+						Interactions.mouseIntersection(imgX[i], imgY*3 + auxHeight + boxHeight*2 + 30, boxWidth, boxHeight))) {
 						System.out.println("Clique");
 						NeanderCloud.state = 3;
 					}
@@ -63,8 +65,12 @@ public class MainPage {
 		for(int i = 0; i < 3; i++) {
 			//System.out.println("X: " + imgX[i] + ", Y: " + imgY + ", W: " + boxWidth + ", H: " + boxHeight);
 			g.fillRect(imgX[i], imgY + auxHeight, boxWidth, boxHeight);
+			g.fillRect(imgX[i], imgY*2 + auxHeight + boxHeight + 30, boxWidth, boxHeight);
+			g.fillRect(imgX[i], imgY*3 + auxHeight + boxHeight*2 + 30, boxWidth, boxHeight);
 		}
 		
 		UserInterface.scrollLimmiter(g);
+		
+		
 	}
 }
