@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import functions.Interactions;
+import functions.UserInterface;
 import main.NeanderCloud;
-import main.UserInterface;
 
 public class MainPage {
 	
@@ -21,7 +21,7 @@ public class MainPage {
 	
 	static int auxHeight = 0;
 	public static int scroll = 0;
-	public static int spd = 4;
+	public static int spd = 11;
 	
 	public MainPage(){
 		for(int i = 0; i < 3; i++) {
@@ -36,17 +36,20 @@ public class MainPage {
 			if(click == true) {
 				for(int i = 0; i < 3; i++) {
 					if(Interactions.mouseIntersection(imgX[i], imgY + auxHeight, boxWidth, boxHeight)) {
-						NeanderCloud.state = 2;
+						System.out.println("Clique");
+						NeanderCloud.state = 3;
 					}
 				}
 				click = false;
 			}
-			
-			if(scroll > 1 ) {
+			//System.out.println("Scroll Status: " + scroll);
+			if(scroll > 1) {
 				auxHeight -= spd;
+				//System.out.println("Scroll Down \nAuxHeight: " + auxHeight);
 				scroll = 0;
 			}else if(scroll < -1 && auxHeight < 0) {
 				auxHeight += spd;
+				//System.out.println("Scroll Down \nAuxHeight: " + auxHeight);
 				scroll = 0;
 			}
 		}
@@ -62,5 +65,6 @@ public class MainPage {
 			g.fillRect(imgX[i], imgY + auxHeight, boxWidth, boxHeight);
 		}
 		
+		UserInterface.scrollLimmiter(g);
 	}
 }

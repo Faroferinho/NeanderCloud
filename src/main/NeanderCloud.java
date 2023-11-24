@@ -17,6 +17,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import functions.Interactions;
+import functions.UserInterface;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.Profile;
@@ -75,7 +76,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	public NeanderCloud() {
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-		this.addMouseMotionListener(this);
+		this.addMouseWheelListener(this);
 		this.addKeyListener(this);
 	}
 	
@@ -203,7 +204,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		// TODO Auto-generated method stub
-		//System.out.println("Rolagem do mouse: " + e.getUnitsToScroll());
+		//System.out.println("getUnitsToScroll: " + e.getUnitsToScroll());
 		MainPage.scroll = e.getUnitsToScroll();
 	}
 

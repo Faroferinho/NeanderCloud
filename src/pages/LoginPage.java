@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
+import javax.swing.JOptionPane;
+
 import functions.Interactions;
 import main.NeanderCloud;
 
@@ -45,6 +47,8 @@ public class LoginPage {
 					userID = "";
 					userPassword = "";
 					NeanderCloud.state = 1;
+				}else {
+					JOptionPane.showMessageDialog(null, "Login e/ou Senha Incorretos", "Erro ao Efetuar o Login", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 			

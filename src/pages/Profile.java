@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import main.UserInterface;
+import functions.UserInterface;
 
 public class Profile {
 	public boolean reset;

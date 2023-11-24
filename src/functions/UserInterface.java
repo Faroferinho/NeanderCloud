@@ -1,9 +1,9 @@
-package main;
+package functions;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import functions.Interactions;
+import main.NeanderCloud;
 
 public class UserInterface {
 	
@@ -30,6 +30,16 @@ public class UserInterface {
 		
 		g.setColor(Color.gray);
 		g.fillRect(24 + 6, bttnY*2 + boxHeight + 6, NeanderCloud.WIDTH - 84, NeanderCloud.HEIGHT - (bttnY*2 + boxHeight) - 78);
+	}
+	
+	public static void scrollLimmiter(Graphics g) {
+		g.setColor(Color.black);
+		g.fillRect(0, 0, NeanderCloud.WIDTH, bttnY*2 + boxHeight);
+		g.fillRect(0, bttnY*2 + boxHeight + (NeanderCloud.HEIGHT - (bttnY*2 + boxHeight) - 66), NeanderCloud.WIDTH, 200);
+		
+		g.setColor(Color.red);
+		g.fillRect(24, bttnY*2 + boxHeight, NeanderCloud.WIDTH - 72, 6);
+		g.fillRect(24, bttnY*2 + boxHeight + (NeanderCloud.HEIGHT - (bttnY*2 + boxHeight) - 72), NeanderCloud.WIDTH - 72, 6);
 	}
 	
 	public void tick() {
