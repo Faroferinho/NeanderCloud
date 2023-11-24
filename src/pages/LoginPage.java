@@ -87,6 +87,9 @@ public class LoginPage {
 		
 		g.drawString(userID, borderLeft + 25, NeanderCloud.HEIGHT/3 + 37);
 		g.drawString(userPassword, borderLeft + 25, NeanderCloud.HEIGHT/3*2  - 14);
+		
+		g.fillRoundRect(borderLeft, 24, borderLeft*2, 40, 16, 16);
+		g.drawImage(NeanderCloud.iLoader.getLogo(), NeanderCloud.WIDTH/2 - 256, 40, 510, 103, null);
 	}
 	
 }

@@ -58,6 +58,7 @@ public class Interactions {
 	public static boolean verifyAccount(String account, String password) {
 		System.out.println("Formulário Enviado");
 		
+		//TODO: Remover Bloco de Código Problematico, substituir por SQL com o ConectorJ
 		HashMap<String, String> info = getLoginInfo();
 		
 		if(info.containsKey(account)) {

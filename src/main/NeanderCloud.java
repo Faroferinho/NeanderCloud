@@ -21,6 +21,7 @@ import functions.Interactions;
 import functions.UserInterface;
 import pages.LoginPage;
 import pages.MainPage;
+import pages.Product;
 import pages.Profile;
 
 
@@ -34,13 +35,19 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 	public static int mX;
 	public static int mY;
 	
+	public static boolean createNewProductPage = false;
+	public static int productID = -1;
+	
+	
 	public static Toolkit tk;
+	
 	
 	public static ImageLoader iLoader;
 	public static LoginPage loginP;
 	public static MainPage mainP;
 	public static UserInterface ui;
 	public static Profile p;
+	public static Product product;
 	
 	
 	public static void main(String args[]) {
@@ -83,7 +90,15 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		this.addKeyListener(this);
 	}
 	
+	public static void checkForProduct() {
+		
+	}
+	
 	public static void tick() {
+		if(createNewProductPage == true) {
+			product = new Product(productID);
+			createNewProductPage = false;
+		}
 		
 		switch(state) {
 		case 0:
@@ -97,6 +112,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 			ui.tick();
 			break;
 		case 3:
+			product.tick();
 			ui.tick();
 			break;
 		}
@@ -138,6 +154,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 			break;
 		case 3:
 			resetBackground(g);
+			product.tick();
 			ui.render(g);
 			break;
 		}
@@ -172,6 +189,7 @@ public class NeanderCloud extends Canvas implements Runnable, MouseListener, Mou
 		loginP.click = true;
 		ui.click = true;
 		mainP.click = true;
+		p.click = true;
 	}
 
 	@Override

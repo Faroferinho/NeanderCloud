@@ -1,6 +1,5 @@
 package functions;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,8 +9,6 @@ import javax.imageio.ImageIO;
 public class ImageLoader {
 	
 	private BufferedImage spritesheet;
-	private BufferedImage backgroundLogin;
-	private BufferedImage backgroundMain;
 	
 	public ImageLoader(){
 		try {
@@ -22,8 +19,17 @@ public class ImageLoader {
 		}
 	}
 	
-	public void justDraw(Graphics g) {
-		g.drawImage(spritesheet, 0, 0, 576, 576, null);
+	public BufferedImage getSprite(int x, int y) {
+		int width = 1066;
+		int height = 1600;
+		
+		return spritesheet.getSubimage(x, y, width, height);
 	}
+	
+	public BufferedImage getLogo() {
+		return spritesheet.getSubimage(1066, 1600, 524, 103);
+	}
+	
+	
 
 }

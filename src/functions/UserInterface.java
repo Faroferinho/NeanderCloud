@@ -18,6 +18,7 @@ public class UserInterface {
 	static int boxHeight = 64;
 	
 	public boolean click = false;
+	public static int spd = 50;
 	
 	public UserInterface() {
 		// TODO Auto-generated constructor stub
